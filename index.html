@@ -1,27 +1,168 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>College Helpdesk Chatbot</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusBuddy - College Helpdesk Chatbot</title>
     <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            text-align: center; 
-            padding: 50px; 
-            background: #f5f5f5;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        h1 { color: #0066cc; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0066cc 0%, #004499 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            display: flex;
+            padding: 40px;
+            gap: 40px;
+        }
+
+        .chat-container {
+            flex: 1;
+        }
+
+        .features {
+            flex: 1;
+        }
+
+        .features h2 {
+            color: #0066cc;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            padding: 15px;
+            margin: 10px 0;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #0066cc;
+        }
+
+        .feature-list li strong {
+            color: #0066cc;
+        }
+
+        iframe {
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: none;
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #eee;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>🏫 College Helpdesk Chatbot</h1>
-    <p>Ask me about fees, scholarships, timetables in multiple languages!</p>
-    
-    <!-- Paste your iframe code here -->
-    <iframe
-        allow="microphone;"
-        width="350"
-        height="430"
-        src="https://console.dialogflow.com/api-client/demo/embedded/d5f3c25e-50cc-476b-99c3-a05b8dffee9a">
-    </iframe>
+    <div class="container">
+        <div class="header">
+            <h1>🏫 CampusBuddy</h1>
+            <p>Your 24/7 Multilingual College Helpdesk Assistant</p>
+        </div>
+
+        <div class="content">
+            <div class="chat-container">
+                <!-- PASTE YOUR DIALOGFLOW IFRAME CODE HERE -->
+                <iframe
+                    allow="microphone;"
+                    width="100%"
+                    height="500"
+                    src="https://console.dialogflow.com/api-client/demo/embedded/d5f3c25e-50cc-476b-99c3-a05b8dffee9a">
+                </iframe>
+            </div>
+
+            <div class="features">
+                <h2>🌟 Key Features</h2>
+                <ul class="feature-list">
+                    <li><strong>🗣️ Multilingual Support</strong><br>Understands English, Hindi, Tamil, Telugu, Kannada & Malayalam</li>
+                    <li><strong>⏰ 24/7 Availability</strong><br>Instant answers to common college queries anytime</li>
+                    <li><strong>📚 FAQ Management</strong><br>Handles fees, scholarships, attendance, schedules</li>
+                    <li><strong>👥 Human Handoff</strong><br>Seamlessly connects to staff for complex issues</li>
+                    <li><strong>🌐 Web & Mobile Ready</strong><br>Works on website, WhatsApp, and other platforms</li>
+                    <li><strong>🚀 Easy Maintenance</strong><br>Can be updated by student volunteers</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Built for Smart India Hackathon 2025 | Powered by Dialogflow & Python</p>
+            <!-- Minimal toggle button - expands when needed -->
+<button onclick="togglePdfUpload()" style="margin: 10px 0;">📁 Upload PDF Circulars</button>
+
+<div id="pdfUploadSection" style="display: none; background: #f5f5f5; padding: 10px;">
+    <form id="pdfUploadForm" enctype="multipart/form-data">
+        <input type="file" name="pdf_file" accept=".pdf">
+        <button type="submit">Upload</button>
+    </form>
+    <div id="uploadStatus"></div>
+</div>
+
+<script>
+function togglePdfUpload() {
+    const section = document.getElementById('pdfUploadSection');
+    section.style.display = section.style.display === 'none' ? 'block' : 'none';
+}
+
+// Rest of the upload script same as above
+</script>
+        </div>
+    </div>
 </body>
 </html>
+
